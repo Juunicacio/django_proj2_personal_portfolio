@@ -124,8 +124,15 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# To use static inside the apps
+STATICFILES_DIRS = [
+    (BASE_DIR / "static"),
+    '/var/www/static/',
+]
+
 # Creating a root for the media, to open with an url
 MEDIA_URL = '/media/'
 
 # Creating a folder for the pictures
 MEDIA_ROOT = BASE_DIR / 'media'
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Polish
+        1. Put an s at the end of a word after a plural number 
+        2. Date formating
+        3. Limiting how much I wanna see of the descriptions in the page
+
+    -->
+    you are inside the blog page 
+
+    
+    <h2>I've written {{ blog_count }} blog{{ blogs_count|pluralize}}</h2> <!--1-->
+
+    {% for blog in blogs %}
+
+    <a href="{% url 'blog:detail' blog.id %}"><h1>{{blog.title}}</h1></a>
+    <h3>{{ blog.date|date:'M d Y'|upper }}</h3> <!--2-->
+    <p>{{ blog.description|striptags|truncatechars:100 }}</p> <!--3-->
+
+    {% endfor %}
+</body>
+</html>
